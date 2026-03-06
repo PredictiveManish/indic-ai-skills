@@ -1,38 +1,65 @@
 ---
 name: phonepe
-description: Accept UPI payments in India using PhonePe. Supports UPI Collect, Payment Links, and checkout. Requires PHONEPE_MERCHANT_ID and PHONEPE_SALT_KEY in Settings.
+description: PhonePe UPI payment integration. No Zo-specific setup - uses standard environment variables.
 metadata:
-  author: buckbuckbot
-  category: Payments
+  author: ankitjh4
+  display-name: PhonePe UPI Payments
 ---
 
-# PhonePe UPI Payment Integration
+# PhonePe UPI Payment Gateway
 
-Accept UPI payments in India via PhonePe.
+Accept UPI payments via PhonePe - India's leading UPI platform.
+
+## API Key Required
+
+1. Register at https://business.phonepe.com
+2. Get API credentials from merchant dashboard
 
 ## Setup
 
-1. Register at [PhonePe Business](https://business.phonepe.com/)
-2. Get Merchant ID and Salt Key from dashboard
-3. Add secrets in [Settings → Advanced](/?t=settings&s=advanced):
-   - `PHONEPE_MERCHANT_ID` = your merchant ID
-   - `PHONEPE_SALT_KEY` = your salt key
-   - `PHONEPE_ENV` = sandbox (or `production`)
+```bash
+# Set environment variables
+export PHONEPE_MERCHANT_ID="your_merchant_id"
+export PHONEPE_SALT_KEY="your_salt_key"
+export PHONEPE_SALT_INDEX=1
+# Environment: production or preprod (testing)
+export PHONEPE_ENV="preprod"
+```
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| PHONEPE_MERCHANT_ID | Yes | Merchant ID from PhonePe |
+| PHONEPE_SALT_KEY | Yes | Salt key for signing |
+| PHONEPE_SALT_INDEX | Yes | Salt index (usually 1) |
+| PHONEPE_ENV | No | "preprod" or "production" |
 
 ## Usage
 
 ```bash
-# Create payment link
-python3 scripts/phonepe.py payment-link --amount 10000 --phone 919999999999 --name "Customer Name"
+# Initiate UPI collect
+python3 scripts/phonepe.py collect "upi@upi" 100 "order123"
 
-# Check payment status
-python3 scripts/phonepe.py status --merchant_order_id order_123
+# Check transaction status
+python3 scripts/phonepe.py status "txn_id"
 
-# Validate UPI address
-python3 scripts/phonepe.py validate-vpa --vpa success@ybl
+# Create QR payment
+python3 scripts/phonepe.py qr 500 "order456"
 ```
 
-## Endpoints
+## Features
+
+- UPI Collect (request payment)
+- QR Code payments
+- Check transaction status
+- Refunds
+
+## API Endpoints
 
 - Sandbox: `https://api-preprod.phonepe.com`
 - Production: `https://api.phonepe.com`
+
+## Docs
+
+- https://developer.phonepe.com/
