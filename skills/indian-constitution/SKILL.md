@@ -1,13 +1,46 @@
 ---
 name: indian-constitution
-description: AI Lawyer powered by the Constitution of India. Query the Indian Constitution using RAG (Retrieval Augmented Generation) to get accurate, cite
-[truncated]
- → ARTICLE_14: Equality before law
-- "What are the fundamental duties?" → List all 11 duties from Part IV-A
-- "Can the President declare emergency?" → Article 352, 356, 360 types
-- "How is a bill passed?" → Article 107-108, 111 procedure
-- "What is judicial review?" → Articles 32, 136, 226, 227 power
-- "Can states levy GST?" → Article 246A, 366(12A) - GST Council
+description: AI-powered legal assistant for Indian Constitution and BNS (Bharatiya Nyaya Sanhita, replaced IPC). Query constitutional provisions and criminal law sections using RAG with semantic search.
+compatibility: Created for Zo Computer
+metadata:
+  author: buckbuckbot.zo.computer
+  category: legal
+  tags: constitution, india, law, legal, bns, ipc, lawyer, rag
+
+---
+
+# Indian Constitution + BNS Lawyer Skill
+
+Complete RAG-based legal assistant for Indian constitutional law and criminal law (BNS 2023).
+
+## What You Can Ask
+
+### Constitutional Law
+- "What are fundamental rights under Part III?"
+- "How is the President elected?"
+- "What are directive principles?"
+- "Emergency provisions in Constitution"
+- "Article 370 and special status"
+
+### BNS 2023 (Replaced IPC)
+- "What is punishment for murder under Section 103 BNS?"
+- "Hate speech laws in BNS"
+- "Sedition under Section 150 BNS"
+- "Domestic violence sections in BNS"
+- "Section 299 BNS - hate speech"
+
+## Quick Start
+
+```bash
+# Query Constitution
+python3 scripts/query.py "What are fundamental rights?"
+
+# Query BNS
+python3 scripts/query.py "What is Section 103 BNS?"
+
+# Get more results
+python3 scripts/query.py "Emergency provisions" -k 10
+```
 
 ## Constitutional Hierarchy
 
@@ -52,6 +85,46 @@ description: AI Lawyer powered by the Constitution of India. Query the Indian Co
 - **Tenth Schedule**: Anti-defection provisions
 - **Eleventh Schedule**: Panchayat powers
 - **Twelfth Schedule**: Municipality powers
+
+## BNS 2023 (Bharatiya Nyaya Sanhita)
+
+### What is BNS?
+The **Bharatiya Nyaya Sanhita, 2023** (BNS) replaced the **Indian Penal Code, 1860 (IPC)** from **July 1, 2024**. It modernizes India's criminal law with:
+- Reduced sections (358 vs 511 in IPC)
+- Gender-neutral provisions
+- New offences (community service, organized crime)
+- Enhanced punishments for crimes against women
+
+### Key BNS Sections
+
+| Section | Offence | Punishment |
+|---------|---------|------------|
+| **103** | Murder | Death or life imprisonment + fine |
+| **105** | Culpable homicide | Life imprisonment or 10 years + fine |
+| **150** | Sedition | 7 years to life imprisonment |
+| **196** | Promoting enmity (hate speech) | 3 years imprisonment |
+| **197** | Imputations prejudicial to integration | 3 years imprisonment |
+| **299** | Deliberate acts intended to outrage religious feelings | 3 years imprisonment |
+| **100** | Snatching | 3 years imprisonment + fine |
+| **304** | Mob lynching | Death, life imprisonment, or 7 years |
+| **352** | Assault or criminal force to woman | 1-5 years imprisonment |
+| **69** | Sexual intercourse by employing deceitful means | 10 years imprisonment |
+
+### Major Changes from IPC
+- **Sedition (124A IPC)** → **Section 150 BNS** (narrowed scope)
+- **Section 377 IPC** (unnatural offences) → **Deleted** (decriminalized)
+- **Section 309 IPC** (attempt to suicide) → **Decriminalized** (now Section 226 with focus on rehabilitation)
+- **New Section 69**: Sexual intercourse by deceitful means
+- **New Section 304**: Mob lynching as separate offence
+- **Community Service**: For petty offences (6 new provisions)
+
+### Data Coverage
+| Document | Details |
+|----------|---------|
+| **Constitution of India** | 402 pages, 395 Articles |
+| **BNS 2023** | 102 pages, 358 Sections |
+| **Total Corpus** | 1.27M characters, 2,265 chunks |
+| **Effective Date** | July 1, 2024 |
 
 ## Data Source
 

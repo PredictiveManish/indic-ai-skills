@@ -1,67 +1,47 @@
-# Indian Constitution Lawyer Skill 🇮🇳
+# Indian Constitution + BNS Lawyer Skill 🇮🇳
 
-> AI-powered legal assistant based on the Constitution of India
+> AI-powered legal assistant for Constitutional law and BNS (replaced IPC)
 
-⚖️ Ask questions about the Indian Constitution and get accurate, cited answers using RAG (Retrieval Augmented Generation).
+## ⚖️ Coverage
+
+- 📜 **Constitution of India** - All 402 pages
+- 🔴 **BNS 2023** - Bharatiya Nyaya Sanhita (replaced IPC, effective July 1, 2024)
 
 ## Quick Start
 
 ```bash
-# Query the Constitution
-cd /home/workspace/indic-ai-skills/skills/indian-constitution
+# Query Constitutional law
 python3 scripts/query.py "What are fundamental rights?"
 
-# Get more results
-python3 scripts/query.py "Can President declare emergency?" -k 10
+# Query BNS (formerly IPC)
+python3 scripts/query.py "What is punishment for hate speech?"
 
-# Show raw chunks
-python3 scripts/query.py "What does Article 21 say?" --raw
+# Query with more results
+python3 scripts/query.py "Section 302 BNS" -k 10
 ```
-
-## Example Queries
-
-| Question | Article Coverage |
-|----------|------------------|
-| "What are fundamental rights?" | Articles 12-35 |
-| "Right to equality" | Article 14-18 |
-| "Freedom of speech" | Article 19 |
-| "Can President declare emergency?" | Articles 352, 356, 360 |
-| "How are judges appointed?" | Articles 124, 217 |
-| "What is GST Council?" | Article 246A, 366(12A) |
 
 ## Data Stats
 
-- 📄 **Pages**: 402 (full Constitution)
-- 🧩 **Chunks**: 1,726
-- 📐 **Embeddings**: 384 dimensions
-- 🤖 **Model**: all-MiniLM-L6-v2 (~80MB)
-- 💾 **Database**: ChromaDB
+| Document | Pages | Chunks | Status |
+|----------|-------|--------|--------|
+| Constitution | 402 | 1,726 | ✅ Complete |
+| BNS 2023 | 102 | 539 | ✅ Complete |
+| **Total** | **504** | **2,265** | ✅ **Ready** |
 
-## Structure
+## Examples
 
-```
-indian-constitution/
-├── data/
-│   ├── constitution-of-india.pdf    # Original PDF
-│   └── constitution-text.txt      # Extracted text
-├── embeddings/
-│   └── chroma_db/                   # Vector database
-├── scripts/
-│   └── query.py                    # Query tool
-├── references/
-│   └── README.md                   # Article reference
-└── SKILL.md                        # Full documentation
-```
+### Constitutional Queries
+- "What are fundamental rights?" → Articles 12-35
+- "How is President elected?" → Article 54-62
+- "Emergency provisions" → Article 352-360
 
-## Technical Details
+### BNS Queries (Replaced IPC)
+- "What is Section 302 BNS?" → Murder punishment
+- "Hate speech laws" → Sections 196, 197, 299
+- "Sedition law" → Section 150 (replaced 124A IPC)
 
-- **Chunk Size**: 1000 characters
-- **Overlap**: 200 characters
-- **Similarity**: Cosine
-- **Retriever**: Top-5 semantic search
+---
 
-## ⚠️ Disclaimer
+**Note**: BNS replaced IPC from July 1, 2024. Always cite BNS sections for current law.
 
-This tool provides constitutional information for educational purposes. It is **NOT** a substitute for professional legal advice. Always consult a qualified lawyer for legal matters.
-
-**We the People of India** 🇮🇳
+*Satyameva Jayate* 🇮🇳
