@@ -1,4 +1,4 @@
-# Vedic Astrology Skill
+# 🪐 Vedic Astrology Skill
 
 > Complete Vedic astrology chart generation and interpretation using Krishnamurthi Paddhati (KP) system, classical Parashara principles, and traditional texts.
 
@@ -7,7 +7,7 @@
 ### Generate a Birth Chart
 
 ```bash
-bun /home/workspace/Skills/vedic-astrology/scripts/generate-chart.ts \
+bun scripts/generate-chart.ts \
   --date "1990-07-15" \
   --time "14:30:00" \
   --lat 28.6139 \
@@ -22,7 +22,7 @@ bun /home/workspace/Skills/vedic-astrology/scripts/generate-chart.ts \
 ### Get Today's Panchanga
 
 ```bash
-bun /home/workspace/Skills/vedic-astrology/scripts/panchanga.ts \
+bun scripts/panchanga.ts \
   --lat 28.6139 \
   --lon 77.2090 \
   --tz 5.5 \
@@ -30,6 +30,19 @@ bun /home/workspace/Skills/vedic-astrology/scripts/panchanga.ts \
 ```
 
 **Output**: Tithi, Nakshatra, Yoga, Karana, Vaara with sunrise/sunset timings
+
+## Feature Status
+
+| Feature | Status | Script |
+|---------|--------|--------|
+| Birth Chart Generation | ✅ Implemented | `scripts/generate-chart.ts` |
+| Chart Interpretation | ✅ Implemented | `scripts/interpret-chart.ts` |
+| Panchanga (Almanac) | ✅ Implemented | `scripts/panchanga.ts` |
+| Quick Format | ✅ Implemented | `scripts/quick-format.py` |
+| Dasha Analysis | 🔜 Planned | `scripts/analyze-dasha.ts` |
+| Transit Analysis | 🔜 Planned | `scripts/transit.ts` |
+| Horary Charts | 🔜 Planned | `scripts/generate-horary.ts` |
+| Compatibility | 🔜 Planned | `scripts/compatibility.ts` |
 
 ## What's Included
 

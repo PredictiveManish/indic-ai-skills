@@ -40,7 +40,7 @@ function analyzeChart(chartFile: string, focus: string) {
   console.log(`**Focus:** ${focus.charAt(0).toUpperCase() + focus.slice(1)}`);
   console.log(`**Birth Details:** ${dob} UTC\n`);
 
-  console.log(`## 1. Core Natal Promis (D1 Rasi Chart)`);
+  console.log(`## 1. Core Natal Promise (D1 Rasi Chart)`);
   const houses = data.d1Chart?.houses || [];
   const asc = houses.find((h: any) => h.number === 1);
   console.log(`**Ascendant (Lagna):** ${asc?.sign || "N/A"}`);
