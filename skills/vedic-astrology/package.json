@@ -1,0 +1,17 @@
+{
+  "name": "vedic-astrology",
+  "version": "1.0.0",
+  "description": "> Complete Vedic astrology chart generation and interpretation using Krishnamurthi Paddhati (KP) system, classical Parashara principles, and traditional texts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3"
+  }
+}
